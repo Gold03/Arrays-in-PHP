@@ -1,13 +1,14 @@
 <?php
+$name = $_POST['name'];
+$email = $_POST['email'];
+$birthday = $_POST['birthday'];
+$gender = $_POST['gender'];
+$country = $_POST['country'];
+$data = [$name , $email , $birthday , $gender , $country,"\n"];
 
-$filename = './userdata.csv';
-$handle = fopen($filename, 'w'); //open file in append mode
+$handle = fopen('./userdata.csv', 'a'); //open file in append mode
+fputcsv($handle, $data);
 
-fwrite($handle, "Juliet Philips\n");
-fwrite($handle, "julietphilip2000@gmail.com\n");
-fwrite($handle, "2022-09-28 \n");
-fwrite($handle, "female\n");
-fwrite($handle, "Nigeria\n");
 print_r($_POST);
 fclose($handle);
 
